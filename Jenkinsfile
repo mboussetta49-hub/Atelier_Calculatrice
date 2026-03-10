@@ -1,11 +1,16 @@
 pipeline {
     agent any
+
     stages {
-        stage('Hello') {
+        stage('Initialisation') {
             steps {
-                echo 'Le pipeline Jenkins fonctionne !'
-                // On utilise "bat" à la place de "sh" car on est sur Windows
-                bat 'node index.js' 
+                echo 'Lancement du test...'
+            }
+        }
+        stage('Execution') {
+            steps {
+                // "bat" est obligatoire sur Windows à la place de "sh"
+                bat 'node index.js'
             }
         }
     }
